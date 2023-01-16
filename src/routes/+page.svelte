@@ -31,12 +31,36 @@
       description: "The CTF team I'm a member of",
     },
   ];
+
+  const url = 'https://s1lv3r.codes';
+  const title = 'S1LV3R';
+  const bio = 'Autistic transfem nerd, in school to become a developer and systems engineer.';
 </script>
+
+<svelte:head>
+  <meta name="description" content={bio} />
+  <meta name="title" content="S1LV3R" />
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={bio} />
+  <meta name="theme-color" content="#ee34ff" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={bio} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary" />
+</svelte:head>
 
 <div class="md:max-w-3xl px-6">
   <h1>S1LV3R</h1>
   <div class="px-5">
-    <p class="pb-2">Autistic transfem nerd, in school to become a developer and systems engineer.</p>
+    <p class="pb-2">{bio}</p>
 
     <ul class="pl-4">
       <li>🏳️‍🌈 I am bisexual</li>

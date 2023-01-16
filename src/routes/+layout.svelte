@@ -1,17 +1,18 @@
 <script type="ts">
   import '../app.scss';
-
-  const nav: Array<{ location: string; name: string }> = [{ location: '/', name: 'Home' }];
 </script>
+
+<svelte:head>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#9f00a7" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>S1LV3R</title>
+</svelte:head>
 
 <div class="flex flex-col justify-center items-center h-full overflow-auto">
   <slot />
-  <div class="mt-10 text-neutral-500">
-    {#each nav as location, index}
-      <a href={location.location} class="hover:text-neutral-100 transition-all">{location.name}</a>
-      {#if index + 1 < nav.length}
-        |{' '}
-      {/if}
-    {/each}
-  </div>
 </div>

@@ -3,13 +3,13 @@
   import { Github, Twitter, Link, AtSign, MessageSquare } from 'lucide-svelte';
   import type { ComponentType } from 'svelte';
 
-  const links: Array<{ title: string; link: string; icon: ComponentType }> = [
+  const links: Array<{ title: string; link: string; icon: ComponentType; rel?: string }> = [
     { title: 'GitHub', link: 'https://github.com/theS1LV3R', icon: Github },
     { title: 'Twitter (not in use)', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
     { title: 'Matrix (@s1lv3r:matrix.org)', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
     { title: 'Email', link: 'mailto:me@s1lv3r.codes', icon: AtSign },
     { title: 'Discord server', link: 'https://s1lv3r.codes/discord', icon: Link },
-    { title: 'Pronouns.page', link: 'https://pronouns.page/u/s1lv3r', icon: Link },
+    { title: 'Pronouns.page', link: 'https://pronouns.page/u/s1lv3r', icon: Link, rel: 'me' },
     { title: 'Fediverse', link: 'https://snug.moe/@zoe', icon: Link },
   ];
 
@@ -80,7 +80,7 @@
           href={link.link}
           title={link.title}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer {link.rel ?? ''}"
           class="bg-neutral-800 p-1 rounded-md hover:bg-neutral-700 hover:shadow-md transition-all"
         >
           <span class="inline-block align-middle p-[2px]">

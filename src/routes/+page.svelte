@@ -63,7 +63,7 @@
     <p class="pb-2">{bio}</p>
 
     <ul class="pl-4">
-      <li>🏳️‍🌈 I am bisexual</li>
+      <li>🏳️‍🌈 I am a lesbian</li>
       <li>🏳‍⚧ I am trans and use she/they pronouns</li>
       <li>
         <span class="h-4 w-7 py-1 pr-2 inline-block"><Asd /></span>I am neurodivergent (autistic). Highly interested in

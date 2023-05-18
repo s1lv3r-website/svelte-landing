@@ -6,14 +6,14 @@
   const links: Array<{ title: string; link: string; icon: ComponentType; rel?: string }> = [
     { title: 'GitHub', link: 'https://github.com/theS1LV3R', icon: Github },
     { title: 'Twitter (not in use)', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
-    { title: 'Matrix (@s1lv3r:matrix.org)', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
     { title: 'Email', link: 'mailto:me@s1lv3r.codes', icon: AtSign },
     { title: 'Discord server', link: 'https://s1lv3r.codes/discord', icon: Link },
     { title: 'Pronouns.page', link: 'https://pronouns.page/u/s1lv3r', icon: Link, rel: 'me' },
     { title: 'Fediverse', link: 'https://snug.moe/@zoe', icon: Link },
+    { title: 'Matrix (@s1lv3r:matrix.org)', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
   ];
 
-  const miscLinks: Array<{ title: string; link: string; description: string; icon?: ComponentType }> = [
+  const miscLinks: { title: string; link: string; description: string; icon?: ComponentType }[] = [
     {
       icon: Github,
       title: 'dotfiles',
@@ -61,15 +61,25 @@
   <h1>S1LV3R</h1>
   <div class="px-5">
     <p class="pb-2">{bio}</p>
-
-    <ul class="pl-4">
-      <li>🏳️‍🌈 I am a lesbian</li>
-      <li>🏳‍⚧ I am trans and use she/they pronouns</li>
-      <li>
-        <span class="h-4 w-7 py-1 pr-2 inline-block"><Asd /></span>I am neurodivergent (autistic). Highly interested in
-        everything computers, servers, and generally technical
-      </li>
-    </ul>
+    <br />
+    <p>
+      <span class="h-4 w-7 py-1 pr-2 inline-block"><Asd /></span>I am neurodivergent (autistic). Highly interested in
+      everything computers, servers, and generally technical. I'm also super interested in old mechanical equipment and
+      old technology, and everything
+      <a
+        href="https://youtube.com/@TechnologyConnections"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="underline hover:font-bold"
+      >
+        Technology Connections
+      </a> has posted.
+    </p>
+    <br />
+    <p>
+      I speak both Norwegian and English, but even though I live in Norway and Norwegian is my native language, I tend
+      to speak more English
+    </p>
   </div>
 
   <div>
@@ -84,7 +94,7 @@
           class="bg-neutral-800 p-1 rounded-md hover:bg-neutral-700 hover:shadow-md transition-all"
         >
           <span class="inline-block align-middle p-[2px]">
-            <svelte:component this={link.icon} />
+            <svelte:component this={link.icon ?? Link} />
           </span>
           {link.title}
         </a>

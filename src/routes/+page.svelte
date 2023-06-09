@@ -7,7 +7,6 @@
     { title: 'GitHub', link: 'https://github.com/theS1LV3R', icon: Github },
     { title: 'Twitter (not in use)', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
     { title: 'Email', link: 'mailto:me@s1lv3r.codes', icon: AtSign },
-    { title: 'Discord server', link: 'https://s1lv3r.codes/discord', icon: Link },
     { title: 'Pronouns.page', link: 'https://pronouns.page/u/s1lv3r', icon: Link, rel: 'me' },
     { title: 'Fediverse', link: 'https://snug.moe/@zoe', icon: Link },
     { title: 'Matrix (@s1lv3r:matrix.org)', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },

@@ -1,6 +1,7 @@
-import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
+import netlifyAdapter from '@sveltejs/adapter-netlify';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import sveltePreprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,13 +9,15 @@ const config = {
   // for more information about preprocessors
   preprocess: [
     vitePreprocess(),
-    preprocess({
+    sveltePreprocess({
       postcss: true,
     }),
   ],
 
   kit: {
-    adapter: adapter(),
+    adapter: netlifyAdapter({
+      split: true
+    }),
   },
 };
 

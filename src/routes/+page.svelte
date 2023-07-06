@@ -1,15 +1,16 @@
 <script lang="ts">
-  import Asd from '../components/asd.svelte';
-  import { Github, Twitter, Link, AtSign, MessageSquare } from 'lucide-svelte';
+  import Asd from '$lib/components/asd.svelte';
+  import { Github, Twitter, Link, AtSign, MessageSquare, Hash } from 'lucide-svelte';
   import type { ComponentType } from 'svelte';
 
   const links: Array<{ title: string; link: string; icon: ComponentType; rel?: string }> = [
-    { title: 'GitHub', link: 'https://github.com/theS1LV3R', icon: Github },
-    { title: 'Twitter (not in use)', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
+    { title: 'GitHub [theS1LV3R]', link: 'https://github.com/theS1LV3R', icon: Github },
+    // { title: 'Twitter (inactive) [theS1LV3R]', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
+    { title: 'Pronouns [theS1LV3R]', link: 'https://en.pronouns.page/@theS1LV3R', icon: Link, rel: 'me' },
+    { title: 'Fediverse [@zoe@snug.moe]', link: 'https://snug.moe/@zoe', icon: Link },
+    { title: 'Matrix [@s1lv3r:matrix.org]', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
+    { title: 'Discord [theS1LV3R]', link: 'https://discord.com/users/279692618391093248', icon: Hash },
     { title: 'Email', link: 'mailto:me@s1lv3r.codes', icon: AtSign },
-    { title: 'Pronouns.page', link: 'https://pronouns.page/u/s1lv3r', icon: Link, rel: 'me' },
-    { title: 'Fediverse', link: 'https://snug.moe/@zoe', icon: Link },
-    { title: 'Matrix (@s1lv3r:matrix.org)', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
   ];
 
   const miscLinks: { title: string; link: string; description: string; icon?: ComponentType }[] = [
@@ -33,7 +34,7 @@
 
   const url = 'https://s1lv3r.codes';
   const title = 'S1LV3R';
-  const bio = 'Autistic transfem nerd, in school to become a developer and systems engineer.';
+  const bio = 'Autistic transfem nerd, studying to become a devops and systems engineer.';
 </script>
 
 <svelte:head>
@@ -56,15 +57,16 @@
   <meta property="twitter:card" content="summary" />
 </svelte:head>
 
-<div class="md:max-w-3xl px-6">
+<div class="p-2 px-6 md:max-w-3xl">
   <h1>S1LV3R</h1>
   <div class="px-5">
     <p class="pb-2">{bio}</p>
     <br />
     <p>
-      <span class="h-4 w-7 py-1 pr-2 inline-block"><Asd /></span>I am neurodivergent (autistic). Highly interested in
-      everything computers, servers, and generally technical. I'm also super interested in old mechanical equipment and
-      old technology, and everything
+      <span class="inline-block h-4 w-7 py-1 pr-2">
+        <Asd />
+      </span>I am neurodivergent (autistic). Highly interested in everything computers, servers, and generally
+      technical. I'm also super interested in old mechanical equipment and old technology, and everything
       <a
         href="https://youtube.com/@TechnologyConnections"
         rel="noopener noreferrer"
@@ -83,16 +85,16 @@
 
   <div>
     <h2>Contact and links</h2>
-    <div class="px-5 flex gap-3 flex-wrap">
+    <div class="flex flex-wrap gap-3 px-5">
       {#each links as link}
         <a
           href={link.link}
           title={link.title}
           target="_blank"
           rel="noopener noreferrer {link.rel ?? ''}"
-          class="bg-neutral-800 p-1 rounded-md hover:bg-neutral-700 hover:shadow-md transition-all"
+          class="rounded-md bg-neutral-800 p-1 transition-all hover:bg-neutral-700 hover:shadow-md"
         >
-          <span class="inline-block align-middle p-[2px]">
+          <span class="inline-block p-[2px] align-middle">
             <svelte:component this={link.icon ?? Link} />
           </span>
           {link.title}
@@ -103,16 +105,16 @@
 
   <div>
     <h2>Misc links</h2>
-    <div class="px-5 grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-4 px-5">
       {#each miscLinks as link}
         <a
           href={link.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-neutral-800 p-3 rounded-md hover:bg-neutral-700 hover:shadow-md transition-all"
+          class="rounded-md bg-neutral-800 p-3 transition-all hover:bg-neutral-700 hover:shadow-md"
         >
           <h3>
-            <span class="inline-block align-middle pb-[2px] mr-[-4px]">
+            <span class="mr-[-4px] inline-block pb-[2px] align-middle">
               <svelte:component this={link.icon ?? Link} />
             </span>
             {link.title}

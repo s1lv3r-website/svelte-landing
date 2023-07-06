@@ -12,7 +12,7 @@ devDependencies:
     specifier: 2.1.0
     version: 2.1.0(@sveltejs/kit@1.22.0)
   '@sveltejs/adapter-netlify':
-    specifier: ^2.0.7
+    specifier: 2.0.7
     version: 2.0.7(@sveltejs/kit@1.22.0)
   '@sveltejs/kit':
     specifier: 1.22.0
@@ -2351,8 +2351,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup@3.26.1:
-    resolution: {integrity: sha512-I5gJCSpSMr3U9wv4D5YA8g7w7cj3eaSDeo7t+JcaFQOmoOUBgu4K9iMp8k3EZnwbJrjQxUMSKxMyB8qEQzzaSg==}
+  /rollup@3.26.2:
+    resolution: {integrity: sha512-6umBIGVz93er97pMgQO08LuH3m6PUb3jlDUUGFsNJB6VgTCUaDFpupf5JfU30529m/UKOgmiX+uY6Sx8cOYpLA==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -2900,7 +2900,7 @@ packages:
     dependencies:
       esbuild: 0.17.19
       postcss: 8.4.24
-      rollup: 3.26.1
+      rollup: 3.26.2
       sass: 1.63.6
     optionalDependencies:
       fsevents: 2.3.2

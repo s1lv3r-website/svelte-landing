@@ -1,7 +1,9 @@
 <script lang="ts">
   import Asd from '$lib/components/asd.svelte';
+  import isChromium from '$lib/client/util/isChromium';
   import { Github, Twitter, Link, AtSign, MessageSquare, Hash } from 'lucide-svelte';
   import type { ComponentType } from 'svelte';
+  import { browser } from '$app/environment';
 
   const links: Array<{ title: string; link: string; icon: ComponentType; rel?: string }> = [
     { title: 'GitHub [theS1LV3R]', link: 'https://github.com/theS1LV3R', icon: Github },
@@ -58,6 +60,17 @@
 </svelte:head>
 
 <div class="p-2 px-6 md:max-w-3xl">
+  {#if browser && isChromium()}
+    <div class="my-2 rounded-lg border-2 border-red-950 bg-red-900 p-2 shadow-md" title="You can't hide this box">
+      <h3>Hey there!</h3>
+      <p>
+        I see you're using a chromium-based browser. You should <i>really</i> consider using Firefox instead if you are able
+        to.
+      </p>
+      <p>Yeah, I have strong opinions on which browser you use. Sue me.</p>
+      <p class="text-sm mt-1 text-neutral-400"><i>If you are actually using Firefox and seeing this, something is wrong. Please contact me somewhere or create an issue in the repo so I can debug and fix it</i></p>
+    </div>
+  {/if}
   <h1>S1LV3R</h1>
   <div class="px-5">
     <p class="pb-2">{bio}</p>

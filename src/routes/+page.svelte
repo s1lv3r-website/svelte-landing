@@ -4,16 +4,18 @@
   import { Github, Twitter, Link, AtSign, MessageSquare, Hash } from 'lucide-svelte';
   import type { ComponentType } from 'svelte';
   import { browser } from '$app/environment';
+    import Error from './+error.svelte';
 
-  const links: Array<{ title: string; link: string; icon: ComponentType; rel?: string }> = [
+  const links: Array<{ title: string; link?: string; icon: ComponentType; rel?: string }> = [
     { title: 'GitHub [theS1LV3R]', link: 'https://github.com/theS1LV3R', icon: Github },
     // { title: 'Twitter (inactive) [theS1LV3R]', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
     { title: 'Pronouns [theS1LV3R]', link: 'https://en.pronouns.page/@theS1LV3R', icon: Link, rel: 'me' },
     { title: 'Fediverse [@zoe@snug.moe]', link: 'https://snug.moe/@zoe', icon: Link },
     { title: 'Matrix [@s1lv3r:matrix.org]', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
     { title: 'Discord [theS1LV3R]', link: 'https://discord.com/users/279692618391093248', icon: Hash },
-    { title: 'Email', link: 'mailto:me@s1lv3r.codes', icon: AtSign },
   ];
+
+  let email = 'Click to show email';
 
   const miscLinks: { title: string; link: string; description: string; icon?: ComponentType }[] = [
     {
@@ -37,6 +39,18 @@
   const url = 'https://s1lv3r.codes';
   const title = 'S1LV3R';
   const bio = 'Autistic transfem nerd, studying to become a devops and systems engineer.';
+
+  const getEmail = async () => {
+    email = 'Loading...';
+    try {
+      const res = await fetch('/getEmail');
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      email = await res.text();
+    } catch (e: unknown) {
+      email = 'Failed to load. See console for information.';
+      console.error(e);
+    }
+  };
 </script>
 
 <svelte:head>
@@ -68,7 +82,12 @@
         to.
       </p>
       <p>Yeah, I have strong opinions on which browser you use. Sue me.</p>
-      <p class="text-sm mt-1 text-neutral-400"><i>If you are actually using Firefox and seeing this, something is wrong. Please contact me somewhere or create an issue in the repo so I can debug and fix it</i></p>
+      <p class="mt-1 text-sm text-neutral-400">
+        <i
+          >If you are actually using Firefox and seeing this, something is wrong. Please contact me somewhere or create
+          an issue in the repo so I can debug and fix it</i
+        >
+      </p>
     </div>
   {/if}
   <h1>S1LV3R</h1>
@@ -108,11 +127,28 @@
           class="rounded-md bg-neutral-800 p-1 transition-all hover:bg-neutral-700 hover:shadow-md"
         >
           <span class="inline-block p-[2px] align-middle">
-            <svelte:component this={link.icon ?? Link} />
+            <svelte:component this={link.icon ?? Link} aria-hidden />
           </span>
           {link.title}
         </a>
       {/each}
+
+      <svelte:element
+        this={email.includes('@') ? 'a' : 'button'}
+        role={email.includes('@') ? 'link' : 'button'}
+        href={`mailto:${email}`}
+        title={email}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cursor-pointer rounded-md bg-neutral-800 p-1 transition-all hover:bg-neutral-700 hover:shadow-md"
+        on:click={getEmail}
+        tabindex="0"
+      >
+        <span class="inline-block p-[2px] align-middle">
+          <svelte:component this={AtSign} aria-hidden />
+        </span>
+        {email}
+      </svelte:element>
     </div>
   </div>
 
@@ -128,7 +164,7 @@
         >
           <h3>
             <span class="mr-[-4px] inline-block pb-[2px] align-middle">
-              <svelte:component this={link.icon ?? Link} />
+              <svelte:component this={link.icon ?? Link} aria-hidden />
             </span>
             {link.title}
           </h3>

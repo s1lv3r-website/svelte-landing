@@ -127,7 +127,7 @@
           class="rounded-md bg-neutral-800 p-1 transition-all hover:bg-neutral-700 hover:shadow-md"
         >
           <span class="inline-block p-[2px] align-middle">
-            <svelte:component this={link.icon ?? Link} aria-hidden />
+            <svelte:component this={link.icon ?? Link} aria-hidden="true" alt="" />
           </span>
           {link.title}
         </a>
@@ -147,7 +147,7 @@
         <span class="inline-block p-[2px] align-middle">
           <svelte:component this={AtSign} aria-hidden />
         </span>
-        {email}
+        Email: [{email}]
       </svelte:element>
     </div>
   </div>

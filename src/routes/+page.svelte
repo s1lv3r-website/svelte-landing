@@ -1,7 +1,7 @@
 <script lang="ts">
   import Asd from '$lib/components/asd.svelte';
   import isChromium from '$lib/client/util/isChromium';
-  import { Github, Twitter, Link, AtSign, MessageSquare, Hash } from 'lucide-svelte';
+  import { Github, Link, AtSign, MessageSquare, Hash } from 'lucide-svelte';
   import type { ComponentType } from 'svelte';
   import { browser } from '$app/environment';
     import Error from './+error.svelte';
@@ -10,7 +10,7 @@
     { title: 'GitHub [theS1LV3R]', link: 'https://github.com/theS1LV3R', icon: Github },
     // { title: 'Twitter (inactive) [theS1LV3R]', link: 'https://twitter.com/@theS1LV3R', icon: Twitter },
     { title: 'Pronouns [theS1LV3R]', link: 'https://en.pronouns.page/@theS1LV3R', icon: Link, rel: 'me' },
-    { title: 'Fediverse [@zoe@snug.moe]', link: 'https://snug.moe/@zoe', icon: Link },
+    { title: 'Fediverse [@zoe@woem.men]', link: 'https://woem.men/@zoe', icon: Link },
     { title: 'Matrix [@s1lv3r:matrix.org]', link: 'https://matrix.to/#/@s1lv3r:matrix.org', icon: MessageSquare },
     { title: 'Discord [theS1LV3R]', link: 'https://discord.com/users/279692618391093248', icon: Hash },
   ];

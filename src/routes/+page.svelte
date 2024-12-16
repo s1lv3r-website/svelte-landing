@@ -35,7 +35,7 @@
       description: "The CTF team I'm a member of",
     },
     {
-      title: 'A Cypherpunk's Manifesto',
+      title: 'A Cypherpunk\'s Manifesto',
       link: '/cypherpunk.txt',
       description: '"A Cypherpunk\'s Manifesto" by Eric Hughes',
     },

@@ -34,6 +34,11 @@
       link: 'https://corax.team',
       description: "The CTF team I'm a member of",
     },
+    {
+      title: 'Cypherpunk manifesto',
+      link: '/cypherpunk.txt',
+      description: 'The Cypherpunk manifesto by Eric Hughes',
+    },
   ];
 
   const url = 'https://s1lv3r.codes';
